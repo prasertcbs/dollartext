@@ -16,7 +16,7 @@ const toWords = new ToWords({
 });
 
 app.get('/', (req, res) => {
-  res.send('Webservice for Excel');
+  res.send('Webservice for Excel by @prasertcbs');
 });
 
 app.get('/th/:number', (req, res) => {
