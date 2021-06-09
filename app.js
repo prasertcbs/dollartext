@@ -22,10 +22,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/about.html'));
 });
 
+/**
+ * แปลงตัวเลขเป็นข้อความภาษาไทย
+ */
 app.get('/th/:number', (req, res) => {
   res.send(BAHTTEXT(req.params.number));
 });
 
+/**
+ * แปลงตัวเลขเป็นข้อความจำนวนเงิน
+ */
 app.get('/en/:number', (req, res) => {
   // console.log(req.query);
   // console.log(JSON.parse(req.query.currency.toLowerCase()));
@@ -36,6 +42,9 @@ app.get('/en/:number', (req, res) => {
   res.send(toWords.convert(req.params.number, { currency }));
 });
 
+/**
+ * แปลงพื้นที่ตารางวาให้เป็น ไร่-งาน-วา
+ */
 app.get('/area/:sqwah', (req, res) => {
   const sqwah2rnw = (sqwah) => {
     const rai = Math.floor(sqwah / 400);
@@ -46,6 +55,11 @@ app.get('/area/:sqwah', (req, res) => {
   res.send(sqwah2rnw(+req.params.sqwah));
 });
 
+/**
+ * คำนวณค่าดัชนีมวลกาย
+ * @example
+ * /bmi?height=170&weight=70
+ */
 app.get('/bmi', (req, res) => {
   console.log(req.query);
   let height = +req.query.height; // in cm.
