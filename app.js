@@ -18,12 +18,13 @@ const toWords = new ToWords({
 
 app.get('/', (req, res) => {
   // res.send('Webservice for Excel by @prasertcbs');
-  // res.sendFile(about.html)
   res.sendFile(path.join(__dirname, '/about.html'));
 });
 
 /**
  * แปลงตัวเลขเป็นข้อความภาษาไทย
+ * @example
+ *  /th/1250
  */
 app.get('/th/:number', (req, res) => {
   res.send(BAHTTEXT(req.params.number));
@@ -31,6 +32,8 @@ app.get('/th/:number', (req, res) => {
 
 /**
  * แปลงตัวเลขเป็นข้อความจำนวนเงิน
+ * @example
+ *  /en/1250
  */
 app.get('/en/:number', (req, res) => {
   // console.log(req.query);
@@ -44,6 +47,8 @@ app.get('/en/:number', (req, res) => {
 
 /**
  * แปลงพื้นที่ตารางวาให้เป็น ไร่-งาน-วา
+ * @example
+ *  /area/789
  */
 app.get('/area/:sqwah', (req, res) => {
   const sqwah2rnw = (sqwah) => {
@@ -58,10 +63,10 @@ app.get('/area/:sqwah', (req, res) => {
 /**
  * คำนวณค่าดัชนีมวลกาย
  * @example
- * /bmi?height=170&weight=70
+ *  /bmi?height=170&weight=70
  */
 app.get('/bmi', (req, res) => {
-  console.log(req.query);
+  // console.log(req.query);
   let height = +req.query.height; // in cm.
   let weight = +req.query.weight; // in kg.
   let bmi = weight / (height / 100) ** 2;
