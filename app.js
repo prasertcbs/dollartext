@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 require('dotenv').config();
 
 const { BAHTTEXT } = require('./bahttext');
@@ -16,7 +17,9 @@ const toWords = new ToWords({
 });
 
 app.get('/', (req, res) => {
-  res.send('Webservice for Excel by @prasertcbs');
+  // res.send('Webservice for Excel by @prasertcbs');
+  // res.sendFile(about.html)
+  res.sendFile(path.join(__dirname, '/about.html'));
 });
 
 app.get('/th/:number', (req, res) => {
