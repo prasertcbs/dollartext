@@ -4,9 +4,9 @@
 
 # Usage:
 ## API
-* `https://dollartext.herokuapp.com/en/123` returns `One Hundred Twenty Three Dollars Only`
-* `https://dollartext.herokuapp.com/en/123?currency=false` returns `One Hundred Twenty Three`
-* `https://dollartext.herokuapp.com/th/123` returns `หนึ่งร้อยยี่สิบสามบาทถ้วน`
+* https://dollartext.herokuapp.com/en/123 returns `One Hundred Twenty Three Dollars Only`
+* https://dollartext.herokuapp.com/en/123?currency=false returns `One Hundred Twenty Three`
+* https://dollartext.herokuapp.com/th/123 returns `หนึ่งร้อยยี่สิบสามบาทถ้วน`
 ## Excel
 * `=WEBSERVICE("https://dollartext.herokuapp.com/en/123")`
 ## Google Sheets
