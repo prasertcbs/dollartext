@@ -27,7 +27,16 @@ app.get('/', (req, res) => {
  *  /th/1250
  */
 app.get('/th/:number', (req, res) => {
-  res.send(BAHTTEXT(req.params.number));
+  let b = BAHTTEXT(req.params.number);
+	if (req.query.currency) {
+		currency = JSON.parse(req.query.currency.toLowerCase());
+		console.log(currency);
+		if (currency === false) {
+			// console.log('no currency unit');
+			b = b.replace('บาทถ้วน', '');
+		}
+  }
+  res.send(b);
 });
 
 /**
